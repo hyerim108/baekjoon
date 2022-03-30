@@ -2,7 +2,6 @@
 #include <stdlib.h>
 int num[1000000];
 int compare(const void *a, const void *b) 
-// 필자의 블로그에 있는 퀵정렬 함수 정리를 보면 된다.
 {
     int num1 = *(int *)a;
     int num2 = *(int *)b;

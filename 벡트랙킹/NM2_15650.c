@@ -6,7 +6,16 @@ void outprint(){
 }
 int back_traking(int L){
     if(L==M){
-        outprint();
+        int p=1;
+        for(int i=0;i<M-1;i++){
+            if(arr[i] < arr[i+1]){
+                p=1;
+            }else{
+                p=0;
+                break;
+            }
+        }
+        if(p==1) outprint();
         return 0;
     }
     for(int i=1;i<=N;i++){

@@ -16,6 +16,7 @@ int f_backtraking(int L){
         visit[i]=1;
         f_backtraking(L+1);
         visit[i]=0;
+        
     }
 }
 int main()
