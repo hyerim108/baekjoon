@@ -10,11 +10,9 @@ int back_traking(int L,int index){
         return 0;
     }
     for(int i=1;i<=N;i++){
-        if(!visit[i] && index<i){
+        if( index<=i){
             arr[L]=i;
-            visit[i] = 1;
             back_traking(L+1,i);
-            visit[i] = 0;
         }
         
     }
