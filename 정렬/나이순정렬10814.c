@@ -1,29 +1,48 @@
 #include <stdio.h>
+#include <stdlib.h>
+typedef struct 
+{
+    int age;
+    char str[101];
+} id;
+id a[100000];
+
+int compare(const void *a, const void *b) 
+{
+    int num1 = *(int *)a;
+    int num2 = *(int *)b;
+ 
+    if (num1 < num2)
+        return -1;
+    if (num1 > num2)
+        return 1;
+    return 0;
+}
 int main(){
-    int num,a[100000];
-    char b[100000];
+    int num;
     scanf("%d", &num);
     for(int i=0;i<num;i++){
-        scanf("%d %s",&a[i],&b[i]);
+        scanf("%d %s",&a[i].age,&a[i].str);
         
     }
-    int j=0;
-    while(j<num){
-        int p =0;
-        while(p<num-1){
-            if(a[p]>a[p+1]){
-            int temp = a[p];
-            a[p] = a[p+1];
-            a[p+1] = temp;
-            char t = b[p];
-            b[p] = b[p+1];
-            b[p+1] = t;
-            }
-            p++;
-        }
-        j++;
-    }
+    qsort(a,num,sizeof(a[0]),compare);
     for(int i =0;i<num;i++){
-        printf("%d %s\n",a[i],b[i]);
+        printf("%d %s\n",a[i].age,a[i].str);
     }
 }
+//시간초과코드
+// int sort(id *arr,int num){
+//     int j =0;
+//     while(j<num){
+//         int i=0;
+//         while(i<num-1){
+//             while(arr[i].age>arr[i+1].age){
+//             int temp = arr[i].age;
+//             arr[i].age = arr[i+1].age;
+//             arr[i+1].age = temp;
+//             }
+//             i++;
+//         }
+//         j++;
+//     }
+// }
